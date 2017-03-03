@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SnoopyImagesDC</string>
+    <string name="txtTitle">Snoopy Pictures</string>
+    <string name="txtSports">Sports Pictures</string>
+    <string name="txtAce">Flying Ace Pictures</string>
+    <string name="txtMisc">Misc. Pictures</string>
+</resources>
