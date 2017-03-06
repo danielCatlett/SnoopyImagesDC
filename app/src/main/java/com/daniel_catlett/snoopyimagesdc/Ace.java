@@ -11,15 +11,13 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
+public class Ace extends AppCompatActivity
 {
-    Integer[] sports = {R.drawable.baseball, R.drawable.football, R.drawable.hockey,
-            R.drawable.soccer};
+    Integer[] ace = {R.drawable.ace1, R.drawable.ace2, R.drawable.ace3, R.drawable.ace4};
     ImageView pic;
-    GridView gridSports;
+    GridView gridAce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,8 +25,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gridSports = (GridView)findViewById(R.id.gridViewSports);
-        gridSports.setAdapter(new ImageAdapter(this));
+        gridAce = (GridView)findViewById(R.id.gridViewSports);
+        gridAce.setAdapter(new Ace.ImageAdapter(this));
 
         ImageButton sportsBtn = (ImageButton)findViewById(R.id.imgButtonSports);
         ImageButton aceBtn = (ImageButton)findViewById(R.id.imgButtonAce);
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View view)
         {
-            Toast.makeText(MainActivity.this, "You are already viewing the sports album", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Ace.this, MainActivity.class));
         }
     };
 
@@ -53,17 +51,16 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View view)
         {
-
-            startActivity(new Intent(MainActivity.this, Ace.class));
+            Toast.makeText(Ace.this, "You are already viewing the Flying Ace album", Toast.LENGTH_SHORT).show();
         }
     };
 
-    ImageButton.OnClickListener mb = new Button.OnClickListener()
+    Button.OnClickListener mb = new Button.OnClickListener()
     {
         @Override
         public void onClick(View view)
         {
-            startActivity(new Intent(MainActivity.this, Misc.class));
+            startActivity(new Intent(Ace.this, Misc.class));
         }
     };
 
@@ -79,7 +76,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public int getCount()
         {
-            return sports.length;
+            return ace.length;
         }
 
         @Override
@@ -98,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         public View getView(int i, View view, ViewGroup viewGroup)
         {
             pic = new ImageView(context);
-            pic.setImageResource(sports[i]);
+            pic.setImageResource(ace[i]);
             pic.setScaleType(ImageView.ScaleType.FIT_XY);
             pic.setLayoutParams(new GridView.LayoutParams(330,330));
             return pic;
